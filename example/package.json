@@ -1,0 +1,24 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"node node_modules/cycle-ssr/server.js\" \"yarn build:client --watch\"",
+    "build": "concurrently \"yarn build:client\" \"yarn build:server\"",
+    "build:client": "vite build --config node_modules/cycle-ssr/vite.browser.config.js",
+    "build:server": "vite build --config node_modules/cycle-ssr/vite.ssr.config.js",
+    "generate": "NODE_ENV=production vite build --config node_modules/cycle-ssr/vite.ssg.config.js && node dist/ssg/cycle-ssg.js",
+    "preview": "NODE_ENV=production node node_modules/cycle-ssr/server.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cycle-ssr": "../cycle-ssr"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.2"
+  }
+}
