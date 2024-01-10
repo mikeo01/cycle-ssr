@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 html {
-  @apply bg-slate-150;
+  @apply bg-slate-200;
 }
 
 #app {
-  @apply w-1/2 p-4 my-4 mx-auto bg-white shadow-lg;
+  @apply w-1/2 p-4 mx-auto my-4 bg-white shadow-lg;
 }
