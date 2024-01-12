@@ -8,4 +8,20 @@ html {
 
 #app {
   @apply w-1/2 p-4 mx-auto my-4 bg-white shadow-lg;
+  @apply text-slate-600;
+}
+
+h1, h2, h3, h4, h5 {
+  @apply text-slate-700;
+}
+
+figure {
+  img {
+    @apply w-full outline outline-2;
+    @apply my-2;
+  }
+
+  figcaption {
+    @apply my-2;
+  }
 }

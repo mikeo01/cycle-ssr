@@ -1,3 +1,3 @@
 import Snabbdom from 'snabbdom-pragma'
 
-export const FigureCaption = ({caption}) => <figcaption innerHTML={caption} />
+export const FigureCaption = ({caption}) => <figcaption>{caption}</figcaption>

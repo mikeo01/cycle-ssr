@@ -1,5 +1,5 @@
 import Snabbdom from 'snabbdom-pragma'
 
-export const Image = ({src}) => <img src={src}/>
+export const Image = ({src}) => <img src={src} />
 
 
