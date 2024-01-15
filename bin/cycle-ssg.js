@@ -49,7 +49,9 @@ async function generate () {
       componentSinks
     )
 
-    if (DOM.map === undefined) { throw new TypeError(Messages.ComponentDOMSinkInvalid) }
+    if (DOM.map === undefined) {
+      throw new TypeError(Messages.ComponentDOMSinkInvalid)
+    }
 
     return {
       DOM: xs
@@ -63,10 +65,9 @@ async function generate () {
 
       ...sinks,
 
-      state: xs.merge(
-        xs.of(() => null),
-        sinks?.state ?? sources.state.stream.map((s) => () => s)
-      )
+      state:
+        sinks?.state ??
+        sources.state.stream.map((s) => () => s).startWith(() => null)
     }
   }
 

@@ -19,7 +19,9 @@ export const main = (component, url) => (sources) => {
     ? xs.of(() => {
       return window?._cyclessr ?? null
     })
-    : xs.of(() => null)
+    : getServerSideSinks
+      ? xs.never()
+      : xs.of(() => null)
 
   return {
     // Only map index.html.js if SSR

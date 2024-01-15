@@ -23,7 +23,7 @@ export const getServerSideSinks = (sources) => {
 
 export const getStaticSinks = getServerSideSinks;
 
-export default (sources) => {
+export default (sources, params) => {
   const time$ = xs
     .periodic(1000)
     .map(() => moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
