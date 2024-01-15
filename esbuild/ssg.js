@@ -12,15 +12,16 @@ console.log('Running static-site generation...'.red)
 const minify = find(equals('--minify'), process.argv) !== undefined
 const sourcemap = find(equals('--sourcemaps'), process.argv) !== undefined
 
-esbuild
-  .build({
-    entryPoints: [`${ __dirname }/../bin/cycle-ssg.js`],
-    plugins: [EsbuildResolveRootImplicitImports, EsbuildCleanPlugin()],
-    bundle: true,
-    outfile: `${ process.cwd() }/dist/server/cycle-ssg.cjs`,
-    metafile: true,
-    format: 'cjs',
-    minify,
-    sourcemap,
-    platform: 'node'
-  })
+esbuild.build({
+  entryPoints: [`${__dirname}/../bin/cycle-ssg.js`],
+  plugins: [EsbuildResolveRootImplicitImports, EsbuildCleanPlugin()],
+  bundle: true,
+  outfile: `${process.cwd()}/dist/server/cycle-ssg.cjs`,
+  metafile: true,
+  format: 'cjs',
+  minify,
+  sourcemap,
+  platform: 'node',
+  jsx: 'transform',
+  jsxFactory: 'Snabbdom.createElement'
+})

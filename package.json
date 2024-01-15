@@ -3,16 +3,29 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky install"
   },
   "bin": "cycle-ssr.mjs",
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.23.8",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
     "esm": "^3.2.25",
+    "husky": "^8.0.3",
     "jest": "^28.1.2",
+    "lint-staged": "^15.2.0",
     "nodemon": "^3.0.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "eslint --fix",
+    "**/*": "prettier --write --ignore-unknown"
   },
   "type": "module",
   "dependencies": {
